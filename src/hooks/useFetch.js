@@ -20,5 +20,5 @@ export const useFetch = () => {
         };
         fetchData();
       }, []);
-  return {countries, isLoading , error}
+  return {countries, isLoading , error} 
 }

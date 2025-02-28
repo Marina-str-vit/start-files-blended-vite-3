@@ -18,7 +18,8 @@ const [countries, setCountries] = useState([]);
 // див. строку. 42 звідти записали дані в константу
   const region = searchParams.get("region")
 
-
+// useEffect виконується в останній момент
+// setCountries(data) отримали з const region 
   useEffect(() => {
     if(!region) return;
     const fetchData = async () => {
@@ -33,7 +34,7 @@ const [countries, setCountries] = useState([]);
       }
     };
     fetchData();
-  }, [region]);
+  }, [region]); // якщо з region, щось буде відбуватися одразу буде реагувати цей useEffect
 
 
 
@@ -41,6 +42,8 @@ const [countries, setCountries] = useState([]);
   const onHandleSubmit = value =>{
     setSearchParams({region: value}) //зберігає вибрані мною дані
   }
+  //location.search = "?region=africa" те, що під капотом
+
 
   return (
     <Section>
